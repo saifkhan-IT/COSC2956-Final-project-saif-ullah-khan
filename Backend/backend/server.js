@@ -1,4 +1,3 @@
-// server.js
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -6,6 +5,7 @@ const cors = require('cors');
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const fileRoutes = require('./routes/files');
 
 const app = express();
 
@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 
 // API routes
 app.use('/api', authRoutes);
+app.use('/api', fileRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
